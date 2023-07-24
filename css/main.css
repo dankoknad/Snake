@@ -1,0 +1,13 @@
+body { display: flex; justify-content: center; }
+.board { width: 360px; height: 240px; }
+.dashboard { width: 110px; margin-left: 30px; }
+.row { display: flex; }
+.row > div { width: 15px; height: 15px; line-height: 15px; text-align: center; }
+.green { background: green; }
+.brown { background: brown; }
+.blink { background-color: transparent; animation: blinking 1s infinite; }
+@keyframes blinking {
+  0% { background-color: #ff9b9b; }
+  100% { background-color: #f00; }
+}
+

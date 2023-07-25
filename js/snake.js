@@ -55,7 +55,6 @@ function play() {
   const [aR, aC]  = updatedData.apple
   const lastSnakeHeadPos = updatedData.snake[dataRef.snake.length - 1]
   const [ _, ...newSnake ] = updatedData.snake
-  const newBoard = genGrid()
 
   if(direction === 'up') { 
     const newRowInx = lastSnakeHeadPos[0] - 1
@@ -118,15 +117,9 @@ function play() {
 
     updatedData.score++
     updatedData.apple = [row, col]
-    newBoard[row][col] = '🍎'
-  } else {
-    newBoard[aR][aC] = '🍎'
   }
   // end eaten apple
 
-  newSnake.forEach(([r,c], i, s) => newBoard[r][c] = (i < s.length - 1) ? 'x' : 'o')
-
-  updatedData.board = newBoard 
   updatedData.snake = newSnake
 
   if(directions.length > 1) {
@@ -155,13 +148,9 @@ export function isTimerActive() {
 export function gameInit() {
   if(timer) { clearTimer() }
 
-  const grid = genGrid()
-  snakeInitiall.forEach(([r,c], i, s) => grid[r][c] = (i < s.length - 1) ? 'x' : 'o')
   const [row, col] = findPlaceForApple(snakeInitiall)
-  grid[row][col] = '🍎'
 
   const initialData = {
-    board: grid,
     snake: [ ...snakeInitiall ],
     apple: [row, col],
     directions: ['right'],

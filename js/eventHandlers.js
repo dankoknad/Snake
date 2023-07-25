@@ -38,26 +38,16 @@ export function handleKeyDown(e) {
   const isValidMove = validKeys[key] || false
 
   if(isValidMove && active) {
-    //console.log('prev', directions)
 
-    //if( key === 'ArrowUp' && direction !== 'up' && direction !== 'down' )  { 
     if( key === 'ArrowUp' && !forbiddenMoves[key][lastDir] )  { 
-      //console.log(1)
       updatedData.directions = ['up', ...directions]
-    //} else if( key === 'ArrowDown' && direction !== 'down' && direction !== 'up' ) {
     } else if( key === 'ArrowDown' && !forbiddenMoves[key][lastDir] ) {
-      //console.log(2)
       updatedData.directions = ['down', ...directions]
-    //} else if( key === 'ArrowLeft' && direction !== 'left' && direction !== 'right' ) {
     } else if( key === 'ArrowLeft' && !forbiddenMoves[key][lastDir] ) {
-      //console.log(3)
       updatedData.directions = ['left', ...directions]
-    //} else if( key === 'ArrowRight' && direction !== 'right' && direction !== 'left' ) {
     } else if( key === 'ArrowRight' && !forbiddenMoves[key][lastDir] ) {
       updatedData.directions = ['right', ...directions]
-      //console.log(4)
     } else {
-      //console.log(5)
       updatedData.directions = directions
     }
 
